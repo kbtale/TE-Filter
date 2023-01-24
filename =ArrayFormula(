@@ -1,0 +1,13 @@
+=ArrayFormula(
+	if(len('MAYO 2022'!G91:G301),
+		transpose(ArrayFormula(
+			if(transpose('MAYO 2022'!G91:G301)=O1,
+				indirect("Digital"),
+				if(transpose('MAYO 2022'!G91:G301)=P1,
+				indirect("Presencial"),
+				"")
+			)
+		)),
+		transpose(ARRAYFORMULA(INDIRECT("Extras")))
+	)
+)

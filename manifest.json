@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "CEVAZ TE FILTER",
+    "description": "A minimal helper for CEVAZ teacher's evaluation downloading",
+    "version": "0.0.1",
+    "author": "Carlos Bolívar",
+    "icons": {
+        "16": "logo/logo-16.png",
+        "48": "logo/logo-48.png",
+        "128": "logo/logo-128.png",
+        "256": "logo/logo-256.png",
+        "512": "logo/logo-512.png"
+    },
+    "action": {
+        "default_title": "CEVAZ TE FILTER",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": ["tabs", "storage", "unlimitedStorage"],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+    "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["*://*.cevaz.org/classroom/mod/feedback/show_entries.php*"],
+        "js": ["fill.js"],
+        "css": ["select.css"]
+    }]
+}
